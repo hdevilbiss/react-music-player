@@ -13,5 +13,5 @@ insert_final_newline = true
 trim_trailing_whitespace = true
 
 # web files
-[*.{html,css,less,js,scss,.jsx}]
+[*.{html,css,less,js,scss,jsx}]
 indent_size = 2
