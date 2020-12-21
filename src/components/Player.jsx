@@ -17,9 +17,9 @@ const Player = () => {
         </p>
       </div>
       <div className="play-control">
-        <FontAwesomeIcon className="rewind" icon={faAngleDoubleLeft} />
-        <FontAwesomeIcon className="play" icon={faPlayCircle} />
-        <FontAwesomeIcon className="fast-forward" icon={faAngleDoubleRight} />
+        <FontAwesomeIcon className="rewind" icon={faAngleDoubleLeft} size="2x" />
+        <FontAwesomeIcon className="play" icon={faPlayCircle} size="2x" />
+        <FontAwesomeIcon className="fast-forward" icon={faAngleDoubleRight} size="2x" />
       </div>
     </div>
   )
