@@ -4,9 +4,6 @@ import { faPlayCircle, faAngleDoubleLeft, faAngleDoubleRight } from '@fortawesom
 const Player = () => {
   return (
     <div className="player">
-      <h2>
-        Player
-      </h2>
       <div className="duration-display">
         <p>
           Start Time
