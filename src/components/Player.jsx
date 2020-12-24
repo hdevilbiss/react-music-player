@@ -9,6 +9,16 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
   const audioRef = useRef(null);
 
   /**
+   * getTime: format time in MM:SS
+   * @param {String} time
+   */
+  const getTime = (time) => {
+    return(
+      Math.floor(time / 60) + ":" + ("0" + Math.floor(time % 60)).slice(-2)
+    );
+  }
+
+  /**
    * Event Handlers
    */
   const playSongHandler = () => {
@@ -21,6 +31,10 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
     const current = event.target.currentTime;
     const duration = event.target.duration;
     setSongInfo({...songInfo, currentTime: current, duration });
+  }
+  const dragHandler = (event) => {
+    audioRef.current.currentTime = event.target.value;
+    setSongInfo({...songInfo, currentTime: event.target.value});
   }
 
   /**
@@ -35,11 +49,11 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
     <div className="player">
       <div className="duration-display">
         <p>
-          Start Time
+          {getTime(songInfo.currentTime)}
         </p>
-        <input type="range"/>
+        <input min={0} max={songInfo.duration} value={songInfo.currentTime} type="range" onChange={dragHandler} />
         <p>
-          End Time
+          {getTime(songInfo.duration)}
         </p>
       </div>
       <div className="play-control">
@@ -47,7 +61,7 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
         <FontAwesomeIcon onClick={playSongHandler} className="play" icon={faPlayCircle} size="2x" />
         <FontAwesomeIcon className="fast-forward" icon={faAngleDoubleRight} size="2x" />
       </div>
-      <audio onTimeUpdate={timeUpdateHandler} ref={audioRef} src={currentSong.audio}></audio>
+      <audio onTimeUpdate={timeUpdateHandler} onLoadedMetadata={timeUpdateHandler} ref={audioRef} src={currentSong.audio}></audio>
     </div>
   )
 }
