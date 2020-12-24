@@ -1,6 +1,6 @@
 import { useRef, useState} from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlayCircle, faAngleDoubleLeft, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
+import { faPlayCircle, faPauseCircle, faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
   /**
@@ -57,9 +57,14 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
         </p>
       </div>
       <div className="play-control">
-        <FontAwesomeIcon className="rewind" icon={faAngleDoubleLeft} size="2x" />
-        <FontAwesomeIcon onClick={playSongHandler} className="play" icon={faPlayCircle} size="2x" />
-        <FontAwesomeIcon className="fast-forward" icon={faAngleDoubleRight} size="2x" />
+        <FontAwesomeIcon className="rewind" icon={faAngleLeft} size="2x" />
+        <FontAwesomeIcon
+          onClick={playSongHandler}
+          className="play"
+          icon={isPlaying ? faPauseCircle : faPlayCircle}
+          size="2x"
+        />
+        <FontAwesomeIcon className="fast-forward" icon={faAngleRight} size="2x" />
       </div>
       <audio onTimeUpdate={timeUpdateHandler} onLoadedMetadata={timeUpdateHandler} ref={audioRef} src={currentSong.audio}></audio>
     </div>
