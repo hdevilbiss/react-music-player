@@ -1,0 +1,58 @@
+$bg_color: ghostwhite;
+$highlight_color: palegreen;
+$shadow_color: silver;
+$scroll_color: ghostwhite;
+$thumb_color: darkturquoise;
+.library {
+  background-color: $bg_color;
+  box-shadow: 2px 2px 50px $shadow_color;
+  overflow: auto;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 20rem;
+  h2 {
+    padding-bottom: 1rem;
+    padding-top: 2rem;
+    text-align: center;
+  }
+  h4 {
+    padding-bottom: 1.5rem;
+  }
+  scrollbar-color: $thumb_color $scroll_color;
+  &::-webkit-scrollbar {
+    width: 30px;
+  }
+  &::-webkit-scrollbar-track {
+    background: $scroll_color;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $thumb_color ;
+    border-radius: 6px;
+    border: 3px solid $scroll_color;
+  }
+}
+.library-song {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  padding: 1rem;
+  img {
+    border-radius: 50px;
+    width: 30%;
+  }
+  &:hover {
+    background-color: $highlight_color;
+  }
+}
+.song-description {
+  padding-left: 1rem;
+  h3 {
+    font-weight: 700;
+  }
+  h4 {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+}
