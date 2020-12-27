@@ -1,4 +1,4 @@
-import Song from './Song';
+import LibrarySong from './LibrarySong';
 const Library = ({songs, currentSong}) => {
   return (
     <div className="library">
@@ -6,7 +6,9 @@ const Library = ({songs, currentSong}) => {
         Library
       </h2>
       <div className="library-songs">
-        <Song currentSong={currentSong} />
+        {songs.map(song => (
+        <LibrarySong song={song} />
+        ))}
       </div>
     </div>
   )
