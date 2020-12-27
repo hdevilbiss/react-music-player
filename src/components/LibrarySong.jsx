@@ -1,13 +1,17 @@
-const LibrarySong = ({songs}) => {
+const LibrarySong = ({ song }) => {
   return (
-    <div className="song-container">
-    <img src="" alt="cover" />
-    <h2>
-      Name
-    </h2>
-    <h3>
-      Artist
-    </h3>
+    <div className="library-song">
+    <img src={song.cover} alt={song.name} />
+    <div className="song-description">
+      <h3>
+        {song.name}
+      </h3>
+      <h4>
+        {song.artist}
+      </h4>
+    </div>
   </div>
   )
 }
+
+export default LibrarySong;
