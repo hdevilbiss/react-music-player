@@ -1,13 +1,15 @@
+@import "./colors.scss";
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 body {
-  color: #444;
+  color: $fg_color;
   font-family: 'Poppins', sans-serif;
 }
 
 @import "./song";
 @import "./player";
 @import "./library";
+@import "./nav";
