@@ -1,10 +1,10 @@
-import { useState} from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlayCircle, faPauseCircle, faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 const Player = ({ currentSong, isPlaying, setIsPlaying, audioRef, songInfo, setSongInfo }) => {
   /**
-   * getTime: format time in MM:SS
+   * getTime function
+   * format time in MM:SS
    * @param {String} time
    */
   const getTime = (time) => {
@@ -26,13 +26,17 @@ const Player = ({ currentSong, isPlaying, setIsPlaying, audioRef, songInfo, setS
     audioRef.current.currentTime = event.target.value;
     setSongInfo({...songInfo, currentTime: event.target.value});
   }
+
+  /**
+   * Return
+   */
   return (
     <div className="player">
       <div className="duration-display">
         <p>
           {getTime(songInfo.currentTime)}
         </p>
-        <input min={0} max={songInfo.duration} value={songInfo.currentTime} type="range" onChange={dragHandler} />
+        <input min={0} max={songInfo.duration || 0} value={songInfo.currentTime} type="range" onChange={dragHandler} />
         <p>
           {getTime(songInfo.duration)}
         </p>
