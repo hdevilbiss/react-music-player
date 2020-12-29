@@ -5,6 +5,7 @@ import { useRef, useState} from "react";
 import Player from './components/Player';
 import Song from './components/Song';
 import Library from './components/Library';
+import Nav from './components/Nav';
 
 /**
  * Import styles
@@ -16,11 +17,15 @@ import "./styles/app.scss";
  */
 import data from './data';
 
+/**
+ * App
+ */
 function App() {
   /**
   * References
   */
   const audioRef = useRef(null);
+
   /**
    * State
    */
@@ -31,6 +36,8 @@ function App() {
     currentTime: 0,
     duration: 0,
   });
+  const [libraryStatus, setLibraryStatus] = useState(false);
+
   /**
    * Event Handlers
    */
@@ -42,9 +49,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>
-        Music Player
-      </h1>
+      <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
       <Song currentSong={currentSong} />
       <Player
         currentSong={currentSong}
@@ -55,11 +60,12 @@ function App() {
         setSongInfo={setSongInfo}
       />
       <Library
-        songs={songs}
-        setCurrentSong={setCurrentSong}
         audioRef={audioRef}
         isPlaying={isPlaying}
+        libraryStatus={libraryStatus}
+        setCurrentSong={setCurrentSong}
         setSongs={setSongs}
+        songs={songs}
       />
       <audio onTimeUpdate={timeUpdateHandler} onLoadedMetadata={timeUpdateHandler} ref={audioRef} src={currentSong.audio}></audio>
     </div>
