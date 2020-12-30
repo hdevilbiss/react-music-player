@@ -17,4 +17,19 @@ input[type="range"] {
     border-color: transparent;
     color: transparent;
   }
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  }
+  /* FireFox */
+  &::-moz-range-thumb {
+    -webkit-appearance: none;
+    background: transparent;
+    border: none;
+  }
+  /* Internet Explorer */
+  ::-ms-thumb {
+    -webkit-appearance: none;
+    background: transparent;
+    border: none;
+  }
 }

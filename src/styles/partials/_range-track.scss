@@ -1,6 +1,20 @@
-@import "../colors.scss";
+@import "../vars/colors.scss";
+@import "../vars/sizes.scss";
 .track {
   background-color: $track_color;
-  height: 2rem;
+  border-radius: $track_height;
+  height: $track_height;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.animate-track {
+  background: $shadow_color;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  pointer-events: none;
+  top: 0;
+  transform: translateX(0%);
   width: 100%;
 }

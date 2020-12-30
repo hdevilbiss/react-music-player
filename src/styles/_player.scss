@@ -6,12 +6,11 @@
   min-width: 20vh;
 }
 .duration-display {
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
   display: flex;
   width: 50%;
-  input {
-    padding: 1rem 2rem;
-    width: 100%;
-  }
 }
 p {
   padding-bottom: 1rem;
@@ -29,5 +28,4 @@ p {
 }
 
 @import "./partials/range-unstyle";
-@import "./partials/range-thumb";
 @import "./partials/range-track";
