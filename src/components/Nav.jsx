@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMusic, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
+import { faMusic } from "@fortawesome/free-solid-svg-icons";
 
 const Nav = ({ libraryStatus, setLibraryStatus }) => {
 
@@ -12,7 +12,10 @@ const Nav = ({ libraryStatus, setLibraryStatus }) => {
         Hotlink Beats
       </h1>
       <button onClick={() => setLibraryStatus(!libraryStatus)}>
-        <FontAwesomeIcon size="2x" icon={libraryStatus ? faTimesCircle : faMusic} />
+        <FontAwesomeIcon
+          size="3x"
+          icon={faMusic}
+          />
         &nbsp;
       </button>
     </nav>
