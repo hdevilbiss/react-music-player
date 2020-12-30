@@ -2,12 +2,12 @@ import { v4 as uuidv4 } from "uuid";
 function chillHop() {
   return [
     {
-      name: "Beaver Creek",
+      name: "Ocean View",
       cover:
-        "https://chillhop.com/wp-content/uploads/2020/09/0255e8b8c74c90d4a27c594b3452b2daafae608d-1024x1024.jpg",
-      artist: "Aso, Middle School, Aviino",
-      audio: "https://mp3.chillhop.com/serve.php/?mp3=10075",
-      color: ["#205950", "#2ab3bf"],
+        "https://chillhop.com/wp-content/uploads/2020/10/0e5bb63f838ff92eeac142aae944e9f678df13c9-1024x1024.jpg",
+      artist: " G Mills, Kyle McEvoy, Luke Otwell",
+      audio: "https://mp3.chillhop.com/serve.php/?mp3=10320",
+      color: ["#433f8c", "#d8a2ba"],
       id: uuidv4(),
       active: true,
     },
