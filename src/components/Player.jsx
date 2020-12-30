@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlayCircle, faPauseCircle, faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
-import { useState} from "react";
+import { playAudio } from "../util";
 
 const Player = ({ currentSong, setCurrentSong, isPlaying, setIsPlaying, audioRef, songInfo, setSongInfo, songs }) => {
   /**
@@ -38,6 +38,7 @@ const Player = ({ currentSong, setCurrentSong, isPlaying, setIsPlaying, audioRef
         ? newIdx = songs.length - 1
         : newIdx = curIdx - 1;
     setCurrentSong(songs[newIdx]);
+    playAudio(isPlaying, audioRef);
   }
 
   /**
@@ -57,7 +58,7 @@ const Player = ({ currentSong, setCurrentSong, isPlaying, setIsPlaying, audioRef
           onChange={dragHandler}
         />
         <p>
-          {getTime(songInfo.duration)}
+          {songInfo.duration ? getTime(songInfo.duration) : "0:00"}
         </p>
       </div>
       <div className="play-control">
