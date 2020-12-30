@@ -1,9 +1,9 @@
 @import "./colors.scss";
 .library {
+  /* Off-Screen by Default */
   transform: translateX(-100%);
   transition: all 0.5s ease;
   opacity: 0;
-
   background-color: $bg_color;
   box-shadow: 2px 2px 50px $shadow_color;
   overflow: auto;
