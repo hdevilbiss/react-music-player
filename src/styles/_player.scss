@@ -12,23 +12,6 @@
     padding: 1rem 2rem;
     width: 100%;
   }
-  input[type="range"] {
-    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
-    width: 100%; /* Specific width required for Firefox. */
-    background: transparent; /* Otherwise white in Chrome */
-    &:focus {
-      outline: none; /* Removes the blue border */
-    }
-    &::-ms-track {
-      width: 100%;
-      cursor: pointer;
-
-      /* Hides the slider so custom styles can be added */
-      background: transparent;
-      border-color: transparent;
-      color: transparent;
-    }
-  }
 }
 p {
   padding-bottom: 1rem;
@@ -45,5 +28,6 @@ p {
   }
 }
 
-@import "./partials/thumb";
-@import "./partials/track";
+@import "./partials/range-unstyle";
+@import "./partials/range-thumb";
+@import "./partials/range-track";
