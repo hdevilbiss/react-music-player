@@ -1,0 +1,20 @@
+input[type="range"] {
+  /* Hides the slider so that custom slider can be made */
+  -webkit-appearance: none;
+  /* Specific width required for Firefox. */
+  width: 100%;
+  /* Otherwise white in Chrome */
+  background: transparent;
+  &:focus {
+    /* Removes the blue border */
+    outline: none;
+  }
+  &::-ms-track {
+    width: 100%;
+    cursor: pointer;
+    /* Hides the slider so custom styles can be added */
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+}
