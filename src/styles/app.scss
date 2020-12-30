@@ -1,4 +1,4 @@
-@import "./colors.scss";
+@import "./vars/colors.scss";
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,7 +6,7 @@
 }
 body {
   color: $fg_color;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 @import "./song";
