@@ -42,6 +42,11 @@ const Player = ({ currentSong, setCurrentSong, isPlaying, setIsPlaying, audioRef
   }
 
   /**
+   * Styles
+   */
+  const animationPercentage = (songInfo.currentTime / songInfo.duration) * 100;
+
+  /**
    * Return
    */
   return (
@@ -58,7 +63,7 @@ const Player = ({ currentSong, setCurrentSong, isPlaying, setIsPlaying, audioRef
             type="range"
             onChange={dragHandler}
           />
-        <div className="animate-track"></div>
+        <div style={{transform: `translateX(${animationPercentage}%)`}} className="animate-track"></div>
         </div>
         <p>
           {songInfo.duration ? getTime(songInfo.duration) : "0:00"}
