@@ -13,7 +13,7 @@ const Nav = ({ libraryStatus, setLibraryStatus }) => {
       </h1>
       <button onClick={() => setLibraryStatus(!libraryStatus)}>
         <FontAwesomeIcon
-          size="3x"
+          size="2x"
           icon={faMusic}
           />
         &nbsp;
