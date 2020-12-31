@@ -41,11 +41,22 @@ function App() {
   /**
    * Event Handlers
    */
+
+  /**
+   * @param {Object} event
+   * @return {Undefined}
+   * Event handler for when the audio has its metadata loaded, or has its time updated from playing or dragging.
+   */
   const timeUpdateHandler = (event) => {
     const current = event.target.currentTime;
     const duration = event.target.duration;
     setSongInfo({...songInfo, currentTime: current, duration });
   }
+
+  /**
+   * An asynchronous event handler which fires when the audio ends.
+   * Auto-plays the next song when available.
+   */
   const songEndHandler = async () => {
     const curIdx = songs.indexOf(currentSong);
     let newIdx = 0;
@@ -76,8 +87,8 @@ function App() {
         libraryStatus={libraryStatus}
         currentSong={currentSong}
         setCurrentSong={setCurrentSong}
-        setSongs={setSongs}
         songs={songs}
+        setSongs={setSongs}
       />
       <audio
         onTimeUpdate={timeUpdateHandler}

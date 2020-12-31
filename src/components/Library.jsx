@@ -11,12 +11,8 @@ const Library = ({ songs, currentSong, setCurrentSong, audioRef, isPlaying, setS
           currentSong={currentSong}
           setCurrentSong={setCurrentSong}
           song={song}
-          songs={songs}
-          id={song.id}
-          key={song.id}
           audioRef={audioRef}
           isPlaying={isPlaying}
-          setSongs={setSongs}
         />
         ))}
       </div>

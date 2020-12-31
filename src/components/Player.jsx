@@ -16,16 +16,42 @@ const Player = ({ currentSong, setCurrentSong, isPlaying, setIsPlaying, audioRef
   /**
    * Event Handlers
    */
+
+  /**
+   * An event handler for when the play or pause button gets clicked.
+   * Checks the `isPlaying` state to decide whether to play the song.
+   * Sets the `isPlaying` state to its opposite. Since the play button is tied to the `isPlaying` state,
+   * this also updates the UI.
+   */
   const playSongHandler = () => {
     isPlaying
       ? audioRef.current.pause()
       : audioRef.current.play();
       setIsPlaying(!isPlaying);
   }
+
+  /**
+   *
+   * @param {Event} event
+   * An event handler for when the cursor drags the thumb in the range input,
+   * setting the current time reference equal to the input value,
+   * and updating the song duration display in the UI.
+   */
   const dragHandler = (event) => {
     audioRef.current.currentTime = event.target.value;
     setSongInfo({...songInfo, currentTime: event.target.value});
   }
+
+  /**
+   *
+   * @param {String} direction
+   * An event handler for the rewind and skip buttons, which decides which song (which index in songs) should be played next.
+   * It pauses the runtime until `setCurrentSong` is finished, then
+   * checks whether `isPlaying` is true: when true, play the current `audioRef`
+   *
+   * @link https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await#But_how_does_it_work
+   *
+   */
   const skipHandler = async (direction) => {
     const curIdx = songs.indexOf(currentSong);
     let newIdx = 0;
@@ -43,9 +69,9 @@ const Player = ({ currentSong, setCurrentSong, isPlaying, setIsPlaying, audioRef
   /**
    * Styles
    */
-  const animationPercentage = (songInfo.currentTime / songInfo.duration) * 100;
+  const percentageOfSongCompleted = (songInfo.currentTime / songInfo.duration) * 100;
   const transformSongDurationOnTrack = {
-    transform: `translateX(${animationPercentage}%)`
+    transform: `translateX(${percentageOfSongCompleted}%)`
   };
   const rangeGradient = {
     background: `linear-gradient(to right, ${currentSong.color[0]}, ${currentSong.color[1]})`
