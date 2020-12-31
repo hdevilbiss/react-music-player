@@ -83,7 +83,7 @@ const Player = ({ currentSong, setCurrentSong, isPlaying, setIsPlaying, audioRef
           className="rewind"
           onClick={() => skipHandler('rewind')}
           icon={faAngleLeft}
-          size="2x"
+          size="3x"
         />
         <FontAwesomeIcon
           onClick={playSongHandler}
@@ -95,7 +95,7 @@ const Player = ({ currentSong, setCurrentSong, isPlaying, setIsPlaying, audioRef
           className="fast-forward"
           onClick={() => skipHandler('forward')}
           icon={faAngleRight}
-          size="2x"
+          size="3x"
         />
       </div>
     </div>
