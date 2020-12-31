@@ -20,10 +20,18 @@ p {
   align-items: center;
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
   width: 30%;
   svg {
     cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .duration-display {
+    width: 90%;
+  }
+  .play-control {
+    width: 60%;
   }
 }
 
