@@ -8,6 +8,12 @@ body {
   color: $fg_color;
   font-family: "Poppins", sans-serif;
 }
+.App {
+  transition: all 0.5s ease;
+}
+.library-active {
+  margin-left: 20%;
+}
 
 @import "./song";
 @import "./player";
