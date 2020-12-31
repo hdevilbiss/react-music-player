@@ -34,3 +34,13 @@ function App() {
 🚧
 
 ![Diagram showing App, Song, Library, Player, and LibrarySong components of the Music App](docs/images/MusicApp.png)
+
+All components inherit from the root component, `App`.
+
+The `Nav` component displays a header, and toggler to open and close the `Library`.
+
+The `Song` component displays the cover art, song name, and artist for the `currentSong` state.
+
+The `Library` component displays several `LibrarySong` components. The `LibrarySong` components list out the cover art, song name, and artist for each song in the `data.js` file.
+
+The `Player` component has the icons which can be used to rewind to the previous, play, pause, and fast forward to the next song. It has `FontAwesomeIcon` components as the user interface.
