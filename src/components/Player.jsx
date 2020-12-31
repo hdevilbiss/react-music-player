@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlayCircle, faPauseCircle, faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
-import { playAudio } from "../util";
 
 const Player = ({ currentSong, setCurrentSong, isPlaying, setIsPlaying, audioRef, songInfo, setSongInfo, songs }) => {
   /**
@@ -27,7 +26,7 @@ const Player = ({ currentSong, setCurrentSong, isPlaying, setIsPlaying, audioRef
     audioRef.current.currentTime = event.target.value;
     setSongInfo({...songInfo, currentTime: event.target.value});
   }
-  const skipHandler = (direction) => {
+  const skipHandler = async (direction) => {
     const curIdx = songs.indexOf(currentSong);
     let newIdx = 0;
     direction === 'forward'
@@ -37,8 +36,8 @@ const Player = ({ currentSong, setCurrentSong, isPlaying, setIsPlaying, audioRef
       : curIdx === 0
         ? newIdx = songs.length - 1
         : newIdx = curIdx - 1;
-    setCurrentSong(songs[newIdx]);
-    playAudio(isPlaying, audioRef);
+    await setCurrentSong(songs[newIdx]);
+    if (isPlaying) audioRef.current.play();
   }
 
   /**
