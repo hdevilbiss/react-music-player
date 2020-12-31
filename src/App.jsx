@@ -46,6 +46,15 @@ function App() {
     const duration = event.target.duration;
     setSongInfo({...songInfo, currentTime: current, duration });
   }
+  const songEndHandler = async () => {
+    const curIdx = songs.indexOf(currentSong);
+    let newIdx = 0;
+    curIdx === songs.length - 1
+      ? newIdx = 0
+      : newIdx = curIdx + 1
+    await setCurrentSong(songs[newIdx]);
+    if (isPlaying) audioRef.current.play();
+  }
 
   return (
     <div className="App">
@@ -70,7 +79,13 @@ function App() {
         setSongs={setSongs}
         songs={songs}
       />
-      <audio onTimeUpdate={timeUpdateHandler} onLoadedMetadata={timeUpdateHandler} ref={audioRef} src={currentSong.audio}></audio>
+      <audio
+        onTimeUpdate={timeUpdateHandler}
+        onLoadedMetadata={timeUpdateHandler}
+        ref={audioRef}
+        src={currentSong.audio}
+        onEnded={songEndHandler}>
+      </audio>
     </div>
   );
 }
