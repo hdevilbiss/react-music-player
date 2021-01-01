@@ -2,6 +2,8 @@
 
 A stylish music player built with React.js and styled with Sass.
 
+Read this in other languages: [English](README.md), [Español](README-ESP.md).
+
 ![A screenshot of the music app showing cover art, song details, buttons to play the songs, and a library of all the songs](docs/images/Screenshot.png)
 
 ## Boilerplate
@@ -33,8 +35,6 @@ function App() {
 
 ### Components
 
-🚧
-
 ![Diagram showing App, Song, Library, Player, and LibrarySong components of the Music App](docs/images/MusicApp.png)
 
 All components inherit from the root component, `App`.
@@ -45,4 +45,4 @@ The `Song` component displays the cover art, song name, and artist for the `curr
 
 The `Library` component displays several `LibrarySong` components. The `LibrarySong` components list out the cover art, song name, and artist for each song in the `data.js` file.
 
-The `Player` component has the icons which can be used to rewind to the previous, play, pause, and fast forward to the next song. It has `FontAwesomeIcon` components as the user interface.
+The `Player` component has the icons which can be used to rewind to the previous song, play or pause the song, and fast forward to the next song. It has `FontAwesomeIcon` components as the user interface.
