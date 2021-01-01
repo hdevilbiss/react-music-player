@@ -92,12 +92,13 @@ function App() {
         setSongs={setSongs}
       />
       <audio
-        onTimeUpdate={timeUpdateHandler}
+        onEnded={songEndHandler}
         onLoadedMetadata={timeUpdateHandler}
+        onTimeUpdate={timeUpdateHandler}
         ref={audioRef}
         src={currentSong.audio}
-        onEnded={songEndHandler}>
-      </audio>
+        volume={songInfo.volume}
+      ></audio>
     </div>
   );
 }
