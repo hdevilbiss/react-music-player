@@ -1,28 +1,76 @@
+@import "./vars/colors.scss";
+@import "./partials/unstyle-input-range.scss";
+$track_height: 1.2rem;
+$thumb_width: 1rem;
+$volume_height: 1rem;
 .player {
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   min-width: 20vh;
-}
-.duration-display {
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  display: flex;
-  width: 50%;
-}
-p {
-  padding-bottom: 1rem;
-  padding-top: 1rem;
-}
-.play-control {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  width: 30%;
-  svg {
-    cursor: pointer;
+  p {
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+  }
+  .duration-display {
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    display: flex;
+    width: 50%;
+  }
+  .play-control {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+    svg {
+      cursor: pointer;
+    }
+  }
+  .track {
+    background-color: $track_color;
+    border-radius: $track_height;
+    height: $track_height;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    .animate-track {
+      background: $shadow_color;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      pointer-events: none;
+      top: 0;
+      transform: translateX(0%);
+      width: 100%;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      height: $track_height;
+      width: $track_height;
+    }
+  }
+  .volume-control {
+    background-color: $track_color;
+    border-radius: $volume_height;
+    height: $volume_height;
+    overflow: hidden;
+    position: relative;
+    margin-top: $volume_height;
+    width: 20%;
+    input[type="range"]::-webkit-slider-thumb {
+      background: #afa;
+      height: 1rem;
+      width: 1rem;
+    }
+    .animate-volume {
+      background: $shadow_color;
+      height: 100%;
+      position: absolute;
+      pointer-events: none;
+      width: 100%;
+    }
   }
 }
 
@@ -34,6 +82,3 @@ p {
     width: 60%;
   }
 }
-
-@import "./partials/range-unstyle";
-@import "./partials/range-track";
