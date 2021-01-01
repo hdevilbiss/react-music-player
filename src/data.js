@@ -2,6 +2,16 @@ import { v4 as uuidv4 } from "uuid";
 function chillHop() {
   return [
     {
+      name: "Sleepover",
+      cover:
+        "https://chillhop.com/wp-content/uploads/2020/12/7e98d3028a22ee7f16f6a9bfcdc2089f089777a5-1024x1024.jpg",
+      artist: "Nymano, JK the sage",
+      audio: "https://mp3.chillhop.com/serve.php/?mp3=10130",
+      color: ["#38478c", "#a65e66"],
+      id: uuidv4(),
+      active: false,
+    },
+    {
       name: "Ocean View",
       cover:
         "https://chillhop.com/wp-content/uploads/2020/10/0e5bb63f838ff92eeac142aae944e9f678df13c9-1024x1024.jpg",
@@ -70,7 +80,7 @@ function chillHop() {
       color: ["#084db2", "#e78874"],
       id: uuidv4(),
       active: false,
-    }
+    },
   ];
 }
 
