@@ -1,6 +1,8 @@
-# HotLink Music App
+# HotLink Beats
 
 A stylish music player built with React.js and styled with Sass.
+
+![A screenshot of the music app showing cover art, song details, buttons to play the songs, and a library of all the songs](docs/images/Screenshot.png)
 
 ## Boilerplate
 
