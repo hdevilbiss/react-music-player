@@ -1,6 +1,6 @@
-[English](README.md)
-
 # HotLink Beats
+
+[English](README.md), [Español](README-ESP.md).
 
 Un elegante reproductor de música creado con React.js y con Sass.
 
@@ -35,10 +35,7 @@ function App() {
 
 ### Componentes
 
-🚧
-
 ![Diagram showing App, Song, Library, Player, and LibrarySong components of the Music App](docs/images/MusicApp.png)
-
 
 Todos los componentes heredan desde el componente raíz, `App`.
 
