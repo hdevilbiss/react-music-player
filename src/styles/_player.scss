@@ -60,15 +60,16 @@ $volume_height: 1rem;
     margin-top: $volume_height;
     width: 20%;
     input[type="range"]::-webkit-slider-thumb {
-      background: #afa;
-      height: 1rem;
-      width: 1rem;
+      height: $volume_height;
+      width: $volume_height;
     }
     .animate-volume {
       background: $shadow_color;
       height: 100%;
+      left: 0%;
       position: absolute;
       pointer-events: none;
+      top: 0%;
       width: 100%;
     }
   }
