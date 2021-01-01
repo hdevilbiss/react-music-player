@@ -1,3 +1,5 @@
+[Español](README-ESP.md)
+
 # HotLink Beats
 
 A stylish music player built with React.js and styled with Sass.
