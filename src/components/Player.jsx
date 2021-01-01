@@ -37,7 +37,7 @@ const Player = ({ currentSong, setCurrentSong, isPlaying, setIsPlaying, audioRef
    * setting the current time reference equal to the input value,
    * and updating the song duration display in the UI.
    */
-  const dragHandler = (event) => {
+  const durationDragHandler = (event) => {
     audioRef.current.currentTime = event.target.value;
     setSongInfo({...songInfo, currentTime: event.target.value});
   }
@@ -67,15 +67,31 @@ const Player = ({ currentSong, setCurrentSong, isPlaying, setIsPlaying, audioRef
   }
 
   /**
+   *
+   * @param {Event} event
+   * An event handler for the volume controller
+   * which fires when the range gets dragged
+   */
+  const volumeDragHandler = (event) => {
+    let volume = event.target.value;
+    console.log(volume);
+    audioRef.current.volume = volume;
+    setSongInfo({...songInfo, volume: volume});
+  }
+
+  /**
    * Styles
    */
   const percentageOfSongCompleted = (songInfo.currentTime / songInfo.duration) * 100;
-  const transformSongDurationOnTrack = {
+  const transformSongRange = {
     transform: `translateX(${percentageOfSongCompleted}%)`
+  };
+  const transformVolumeRange ={
+    transform: `translateX(${songInfo.volume}%)`
   };
   const rangeGradient = {
     background: `linear-gradient(to right, ${currentSong.color[0]}, ${currentSong.color[1]})`
-  }
+  };
 
   /**
    * Return
@@ -88,17 +104,15 @@ const Player = ({ currentSong, setCurrentSong, isPlaying, setIsPlaying, audioRef
         </p>
         <div className="track" style={rangeGradient}>
           <input
+            type="range"
             min={0}
             max={songInfo.duration || 0}
             value={songInfo.currentTime}
-            type="range"
-            onChange={dragHandler}
-          />
-        <div
-          style={transformSongDurationOnTrack}
-          className="animate-track"
-        >
-        </div>
+            onChange={durationDragHandler} />
+          <div
+            style={transformSongRange}
+            className="animate-track"
+          ></div>
         </div>
         <p>
           {songInfo.duration ? getTime(songInfo.duration) : "0:00"}
@@ -123,6 +137,20 @@ const Player = ({ currentSong, setCurrentSong, isPlaying, setIsPlaying, audioRef
           icon={faAngleRight}
           size="3x"
         />
+      </div>
+      <div className="volume-control">
+        <input
+          type="range"
+          min={0}
+          max={1}
+          step={0.1}
+          onChange={volumeDragHandler}
+          value={songInfo.volume}
+        />
+        <div
+        className="animate-volume"
+        style={transformVolumeRange}
+        ></div>
       </div>
     </div>
   )
