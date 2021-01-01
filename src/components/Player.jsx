@@ -74,7 +74,6 @@ const Player = ({ currentSong, setCurrentSong, isPlaying, setIsPlaying, audioRef
    */
   const volumeDragHandler = (event) => {
     let volume = event.target.value;
-    console.log(volume);
     audioRef.current.volume = volume;
     setSongInfo({...songInfo, volume: volume});
   }
@@ -87,7 +86,7 @@ const Player = ({ currentSong, setCurrentSong, isPlaying, setIsPlaying, audioRef
     transform: `translateX(${percentageOfSongCompleted}%)`
   };
   const transformVolumeRange ={
-    transform: `translateX(${songInfo.volume}%)`
+    transform: `translateX(${songInfo.volume * 100}%)`
   };
   const rangeGradient = {
     background: `linear-gradient(to right, ${currentSong.color[0]}, ${currentSong.color[1]})`
